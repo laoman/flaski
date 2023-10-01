@@ -7,7 +7,7 @@ spec:
   selector:
     app: hello-python
   ports:
-  - protocol: "TCP"
+  - protocol: "http"
     port: 6000
     targetPort: 5000
-  type: LoadBalancer
+  type: ClusterIP
