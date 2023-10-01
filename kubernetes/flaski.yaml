@@ -1,11 +1,13 @@
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hello-python
   namespace: hello-python-test-re
-
 spec:
   replicas: 4
+  selector:
+    matchLabels:
+      app: hello-python
   template:
     metadata:
       labels:
@@ -14,6 +16,5 @@ spec:
       containers:
       - name: hello-python
         image: hello-python:latest
-        imagePullPolicy: Never
         ports:
         - containerPort: 5000
